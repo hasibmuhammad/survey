@@ -10,53 +10,57 @@
   <body>
     <div class="container py-5 d-flex flex-column justify-content-center align-items-center">
         <h1 class="text-center fw-bolder fs-1">Survey</h1>
-        <form action="" class="w-50 my-5">
+        
+        <form action="/submit" method="POST" class="w-50 my-5">
+            {% if message %}
+                <p class="text-center fw-bold">{{message | safe}}</p>
+            {% endif %}
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input type="text" name="user" class="form-control" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Your Name</label>
             </div>
             <div class="form-floating mb-3">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                  <option selected>Select an Issue</option>
-                  <option value="1">Issue-1</option>
-                  <option value="2">Issue-2</option>
-                  <option value="3">Issue-3</option>
+                <select class="form-select" name="issues" id="floatingSelect" aria-label="Floating label select example">
+                  <option selected>Select a category</option>
+                  <option value="unavailable">Service Unavailable</option>
+                  <option value="crashed">App Crashing</option>
+                  <option value="ads">Too Many Ads</option>
                 </select>
                 <label for="floatingSelect">Issues</label>
             </div>
             <div class="mb-3 border border-1 rounded p-3">
                 <label for="" class="mb-3">Rate Issue </label><br>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="issue" id="inlineRadio1" value="0">
+                    <input class="form-check-input" type="radio" name="rating" id="inlineRadio1" value="0">
                     <label class="form-check-label" for="inlineRadio1">0</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="issue" id="inlineRadio2" value="1">
+                    <input class="form-check-input" type="radio" name="rating" id="inlineRadio2" value="1">
                     <label class="form-check-label" for="inlineRadio2">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="issue" id="inlineRadio1" value="2">
-                    <label class="form-check-label" for="inlineRadio1">2</label>
+                    <input class="form-check-input" type="radio" name="rating" id="inlineRadio3" value="2">
+                    <label class="form-check-label" for="inlineRadio3">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="issue" id="inlineRadio2" value="3">
-                    <label class="form-check-label" for="inlineRadio2">3</label>
+                    <input class="form-check-input" type="radio" name="rating" id="inlineRadio4" value="3">
+                    <label class="form-check-label" for="inlineRadio4">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="issue" id="inlineRadio1" value="4">
-                    <label class="form-check-label" for="inlineRadio1">4</label>
+                    <input class="form-check-input" type="radio" name="rating" id="inlineRadio5" value="4">
+                    <label class="form-check-label" for="inlineRadio5">4</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="issue" id="inlineRadio2" value="5">
-                    <label class="form-check-label" for="inlineRadio2">5</label>
+                    <input class="form-check-input" type="radio" name="rating" id="inlineRadio6" value="5">
+                    <label class="form-check-label" for="inlineRadio6">5</label>
                 </div>
             </div>
             <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="min-height: 200px"></textarea>
+                <textarea name="comments" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="min-height: 200px"></textarea>
                 <label for="floatingTextarea2">Comments</label>
             </div>
             <div class="d-grid gap-2 mt-3">
-                <button class="btn btn-dark" type="button">Button</button>
+                <button class="btn btn-dark" name="submit" type="submit">Submit</button>
             </div>
         </form>
     </div>
